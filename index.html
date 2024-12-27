@@ -1,68 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aolx Minecraft Server - Login & Register</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .container { max-width: 400px; margin: 50px auto; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; }
-        .form-group input { width: 100%; padding: 10px; }
-        .form-group button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        .form-group button:hover { background-color: #45a049; }
-    </style>
+    <title>Aolx Minecraft 服务器</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="loginUsername">Username:</label>
-                <input type="text" id="loginUsername" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
-
-        <h2>Register</h2>
-        <form id="registerForm">
-            <div class="form-group">
-                <label for="registerUsername">Username:</label>
-                <input type="text" id="registerUsername" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="registerEmail">Email:</label>
-                <input type="email" id="registerEmail" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="registerPassword">Password:</label>
-                <input type="password" id="registerPassword" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Register</button>
-            </div>
-        </form>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#login" onclick="showForm('login')">登录</a></li>
+            <li><a href="#register" onclick="showForm('register')">注册</a></li>
+        </ul>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // 这里应该添加调用后端API的代码来处理登录
-            alert('Login form submitted!');
-        });
-
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // 这里应该添加调用后端API的代码来处理注册
-            alert('Register form submitted!');
-        });
-    </script>
+    <div id="content">
+        <div id="home">
+            <h1>欢迎来到Aolx Minecraft服务器</h1>
+            <p>在这里，您可以登录或注册以享受更多功能。</p>
+        </div>
+        <div id="login-form" style="display:none;">
+            <h2>登录</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">用户名:</label>
+                    <input type="text" id="loginUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="login()">登录</button>
+                </div>
+            </form>
+        </div>
+        <div id="register-form" style="display:none;">
+            <h2>注册</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">用户名:</label>
+                    <input type="text" id="registerUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">邮箱:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">密码:</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="register()">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
